@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-03-14T00:03:50.388771+00:00",
+  "timestamp": "2024-03-17T00:04:19.007285+00:00",
   "repo": "dconnolly/draft-connolly-tls-mlkem-key-agreement",
   "labels": [
     {
@@ -49,6 +49,54 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOLZWQXM6CQAK7",
+      "title": "if Decaps fails, return a `decrypt_error`?",
+      "url": "https://github.com/dconnolly/draft-connolly-tls-mlkem-key-agreement/issues/1",
+      "state": "OPEN",
+      "author": "dconnolly",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "We should align -hybrid-design to do the same",
+      "createdAt": "2024-03-14T02:03:55Z",
+      "updatedAt": "2024-03-14T20:03:05Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "dconnolly",
+          "authorAssociation": "OWNER",
+          "body": "Would we even be able to detect this with reasonable probability? Seems like no",
+          "createdAt": "2024-03-14T20:00:53Z",
+          "updatedAt": "2024-03-14T20:00:53Z"
+        },
+        {
+          "author": "dconnolly",
+          "authorAssociation": "OWNER",
+          "body": "> There was a push to change the parsing logic for ML-KEM public keys to never fail, by silently reducing, without changing the hash of the public key. I am not sure if NIST ended up adopting that change for their final standard (I hope they did, I think it's the best way to handle this problem), which would mean that any appropriately sized binary string is a valid ML-KEM public key. For ciphertexts, this property is already the case, due to the compression that is applied in ML-KEM. If NIST incorporated this change, there would be no way for the ML-KEM based key agreement to fail explicitly, any failure would result in an implicit rejection.\n> In the end, this seems to be the same as with elliptic curves as is as well, point-not-on-curve checks can result in an explicit rejection of a keyshare (for the curves where it can occur), and manipulation of the keyshare (by an attacker or some accidental bit flip that somehow was not caught) would result in an implicit rejection here as well, with server and client computing a different shared secret. The only new possible error path I see is due to random decryption failure of a KEM, but given the cryptographically low chance, I'm not certain if this failure needs special handling in any case, and shouldn't be treated the same as a corrupted key share. After all, they are so unlikely that \"cosmic rays flipped all the right bits for QUIC error correction to not notice\" is far more likely to result in a decryption error, so treating it the same as a decryption failure due to a corrupted ciphertext seems fine to me.\n\nhttps://mailarchive.ietf.org/arch/msg/tls/eYUG4DDkfoaGeMAkZHVGGeqcVq0/",
+          "createdAt": "2024-03-14T20:03:04Z",
+          "updatedAt": "2024-03-14T20:03:04Z"
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOLZWQXM6CQAk5",
+      "title": "Define 'commits', or just define and use 'bind', and stick with one",
+      "url": "https://github.com/dconnolly/draft-connolly-tls-mlkem-key-agreement/issues/2",
+      "state": "OPEN",
+      "author": "dconnolly",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2024-03-14T02:05:55Z",
+      "updatedAt": "2024-03-14T02:05:55Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": []
 }
