@@ -284,7 +284,7 @@ This document requests/registers two new entries to the TLS Supported
 Groups registry, according to the procedures in {{Section 6 of tlsiana}}.
 
  Value:
- : 0x0768 (please)
+ : 0xXXXX
 
  Description:
  : MLKEM768
@@ -303,7 +303,7 @@ Groups registry, according to the procedures in {{Section 6 of tlsiana}}.
 
 
  Value:
- : 0x1024 (please)
+ : 0xXXXX
 
  Description:
  : MLKEM1024
